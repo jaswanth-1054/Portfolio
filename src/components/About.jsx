@@ -33,7 +33,7 @@ export default function About({ profileData }) {
             <p>
               With a strong foundation in user research, wireframing, and Figma design systems, I take pride in turning complex workflows (such as healthcare appointment booking, SaaS platforms, and enterprise tooling) into streamlined, accessible, and elegant interfaces.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '2rem' }}>
+            <div className="about-cta-group">
               <a href="#contact" className="btn-primary">
                 Get In Touch
               </a>
