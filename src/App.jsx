@@ -24,11 +24,7 @@ const DEFAULT_PROFILE = {
 };
 
 export default function App() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') return 'dark';
-    const stored = localStorage.getItem('nj_portfolio_theme');
-    return stored === 'light' ? 'light' : 'dark';
-  });
+  const [theme, setTheme] = useState('light');
 
   const [profileData, setProfileData] = useState(() => {
     const saved = localStorage.getItem('nj_portfolio_data');
@@ -55,7 +51,15 @@ export default function App() {
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
     root.setAttribute('data-theme', theme);
-    localStorage.setItem('nj_portfolio_theme', theme);
+    if (theme === 'light') {
+      try {
+        localStorage.setItem('nj_portfolio_theme', 'light');
+      } catch (e) {}
+    } else {
+      try {
+        localStorage.removeItem('nj_portfolio_theme');
+      } catch (e) {}
+    }
   }, [theme]);
 
   const toggleTheme = () => {

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem('nj_portfolio_theme');
-          var active = stored === 'light' ? 'light' : 'dark';
-          document.documentElement.classList.remove('light', 'dark');
-          document.documentElement.classList.add(active);
-          document.documentElement.setAttribute('data-theme', active);
+          localStorage.removeItem('nj_portfolio_theme');
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
         } catch (e) {}
       })();
     </script>
